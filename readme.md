@@ -60,10 +60,12 @@ cp ./.zshrc ~/ && cp -r ./nvim ~/.config/ && cp ./.p10k.zsh ~/
 
 12. `nvm install --lts`
 
-13. `vi .`
+13. `npm i -g tree-sitter-cli`
 
-14. `:PackerSync` to install neovim packages
+14. `vi .`
 
-15. `:CheckHealth` to check neovim's status
+15. `:PackerSync` to install neovim packages
 
-16. `:q`
+16. `:CheckHealth` to check neovim's status
+
+17. `:q`
