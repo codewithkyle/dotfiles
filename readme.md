@@ -60,7 +60,7 @@ cp ./.zshrc ~/ && cp -r ./nvim ~/.config/ && cp ./.p10k.zsh ~/
 
 12. `nvm install --lts`
 
-13. `npm i -g tree-sitter-cli`
+13. `npm i -g tree-sitter-cli neovim`
 
 14. `vi .`
 
