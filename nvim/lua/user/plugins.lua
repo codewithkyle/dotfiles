@@ -76,7 +76,6 @@ return packer.startup(function(use)
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Color scheme
-  --use "lunarvim/darkplus.nvim"
   use "mhartington/oceanic-next"
 
   -- Telescope
