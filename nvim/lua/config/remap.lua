@@ -26,6 +26,8 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- Toggle diagnostics window
-vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>",
-  {silent = true, noremap = true}
-)
+vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>")
+
+-- Stay in indent mode
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
