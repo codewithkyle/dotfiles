@@ -1,3 +1,4 @@
+-- Project explorer
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- use J and K to move selected code blocks up or down
@@ -23,3 +24,8 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 
 -- preventing myself from entering hell
 vim.keymap.set("n", "Q", "<nop>")
+
+-- Toggle diagnostics window
+vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>",
+  {silent = true, noremap = true}
+)

@@ -47,4 +47,7 @@ return require('packer').startup(function(use)
   }
 
   use "nvim-lualine/lualine.nvim"
+  use {
+      "folke/trouble.nvim",
+  }
 end)

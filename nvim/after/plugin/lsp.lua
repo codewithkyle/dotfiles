@@ -30,15 +30,15 @@ lsp.setup_nvim_cmp({
 lsp.set_preferences({
     suggest_lsp_servers = false,
     sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
+        error = '🔥',
+        warn = '⛔',
+        hint = '💡',
+        info = '📚'
     }
 })
 
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -59,6 +59,8 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
   vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+  --vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = true })
 end)
 
 lsp.setup()
