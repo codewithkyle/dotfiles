@@ -33,13 +33,16 @@ cd ../ && rm -rf ./neovim
 6. Install additional packages:
 
 ```
-cd ~/ && git clone https://github.com/codewithkyle/linux-quickstart.git && cd ./linux-quickstart && sudo apt update && sudo apt upgrade -y && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install software-properties-common python-dev python-pip python3-dev python3-pip nodejs zsh -y && sudo chsh -s $(which zsh) && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cd ~/ && git clone https://github.com/codewithkyle/linux-quickstart.git && cd ./linux-quickstart
+sudo apt update && apt upgrade -y
+sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install software-properties-common python3 python3-pip nodejs zsh -y
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && sudo chsh -s $(which zsh) 
 ```
 
-7. Install Go
+7. [Install Go](https://go.dev/doc/install)
 
 ```
-wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.18.3.linux-amd64.tar.gz && rm ./go1.18.3.linux-amd64.tar.gm
+wget https://go.dev/dl/go1.x.x.linux-amd64.tar.gz && sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.x.x.linux-amd64.tar.gz && rm ./go1.x.x.linux-amd64.tar.gz
 ```
 
 8. Install Rust
@@ -60,9 +63,9 @@ cp ./.zshrc ~/ && cp -r ./nvim ~/.config/ && cp ./.p10k.zsh ~/
 
 12. `nvm install --lts`
 
-13. `npm i -g tree-sitter-cli neovim`
+13. `npm i -g neovim`
 
-14. `vi .`
+14. `vi ~/.config/nvim/lua/config/packer.lua`
 
 15. `:PackerSync` to install neovim packages
 
