@@ -35,7 +35,8 @@ cd ../ && rm -rf ./neovim
 ```
 cd ~/ && git clone https://github.com/codewithkyle/linux-quickstart.git && cd ./linux-quickstart
 sudo apt update && apt upgrade -y
-sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update && sudo apt install software-properties-common python3 python3-pip nodejs zsh -y
+sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update 
+sudo apt install software-properties-common python3 python3-pip nodejs zsh ripgrep -y
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && sudo chsh -s $(which zsh) 
 ```
 
@@ -65,10 +66,17 @@ cp ./.zshrc ~/ && cp -r ./nvim ~/.config/ && cp ./.p10k.zsh ~/
 
 13. `npm i -g neovim`
 
-14. `vi ~/.config/nvim/lua/config/packer.lua`
+14. Install Packer
 
-15. `:PackerSync` to install neovim packages
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
 
-16. `:CheckHealth` to check neovim's status
+15. `vi ~/.config/nvim/lua/config/packer.lua`
 
-17. `:q`
+16. `:PackerSync` to install neovim packages
+
+17. `:CheckHealth` to check neovim's status
+
+18. `:q`
