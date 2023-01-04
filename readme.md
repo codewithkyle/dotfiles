@@ -65,7 +65,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 12. Run this Command:
 
 ```
-cp ./.zshrc ~/ && mkdir ~/.config/nvim && cp -r ./nvim ~/.config/nvim/ && cp ./.p10k.zsh ~/
+cp ./.zshrc ~/ && mkdir ~/.config/nvim && cp -r ./nvim/* ~/.config/nvim/ && cp ./.p10k.zsh ~/
 ```
 
 12. Reboot terminal
