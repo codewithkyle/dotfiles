@@ -33,7 +33,7 @@ cd ../ && rm -rf ./neovim
 6. Install Zsh
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sudo apt install zsh nodejs -y && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
 7. [Install NVM](https://github.com/nvm-sh/nvm#installing-and-updating)
@@ -46,7 +46,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cd ~/ && git clone https://github.com/codewithkyle/linux-quickstart.git && cd ./linux-quickstart
 sudo apt update && sudo apt upgrade -y
 sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update 
-sudo apt install software-properties-common python3 python3-pip nodejs zsh ripgrep -y
+sudo apt install software-properties-common python3 python3-pip ripgrep -y
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && sudo chsh -s $(which zsh) 
 ```
 
@@ -65,7 +65,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 12. Run this Command:
 
 ```
-cp ./.zshrc ~/ && cp -r ./nvim ~/.config/nvim && cp ./.p10k.zsh ~/
+cp ./.zshrc ~/ && mkdir ~/.config/nvim && cp -r ./nvim ~/.config/nvim && cp ./.p10k.zsh ~/
 ```
 
 12. Reboot terminal
