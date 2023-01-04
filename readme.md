@@ -83,8 +83,10 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 16. `vi ~/.config/nvim/lua/config/packer.lua`
 
-17. `:PackerSync` to install neovim packages
+17. `:so` 
 
-18. `:CheckHealth` to check neovim's status
+18. `:PackerSync` to install neovim packages
 
-19. `:q`
+19. `:CheckHealth` to check neovim's status
+
+20. `:q`
