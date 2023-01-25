@@ -1,0 +1,7 @@
+local go2 = require("goto-preview")
+vim.keymap.set("n", "<leader>gpd", function() go2.goto_preview_definition() end)
+vim.keymap.set("n", "<leader>gpt", function() go2.goto_preview_type_definition() end)
+vim.keymap.set("n", "<leader>gpi", function() go2.goto_preview_implementation() end)
+vim.keymap.set("n", "<leader>gpr", function() go2.goto_preview_references() end)
+vim.keymap.set("n", "q", function() go2.close_all_win() end)
+vim.keymap.set("n", "<Esc>", function() go2.close_all_win() end)
