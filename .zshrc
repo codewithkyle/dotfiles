@@ -117,3 +117,5 @@ alias vim="nvim"
 alias python=/usr/bin/python3
 
 export PATH=$PATH:/usr/local/go/bin
+alias open="explorer.exe ."
+alias drop="git stash && git stash drop"
