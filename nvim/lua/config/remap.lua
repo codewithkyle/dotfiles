@@ -1,4 +1,3 @@
--- Project explorer
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 
 -- use J and K to move selected code blocks up or down

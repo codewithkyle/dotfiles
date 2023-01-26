@@ -44,4 +44,13 @@ return require('packer').startup(function(use)
           require('goto-preview').setup {}
       end
   }
+  use("editorconfig/editorconfig-vim")
+  use("preservim/nerdcommenter")
+  use {
+      "akinsho/toggleterm.nvim",
+      tag = '*',
+      config = function()
+          require("toggleterm").setup()
+      end
+  }
 end)
