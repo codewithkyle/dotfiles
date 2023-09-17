@@ -4,10 +4,17 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use{
-      'folke/tokyonight.nvim',
+  --use{
+      --'folke/tokyonight.nvim',
+      --config = function()
+          --vim.cmd[[colorscheme tokyonight-night]]
+      --end
+  --}
+  use {
+      "catppuccin/nvim",
+      as = "catppuccin",
       config = function()
-          vim.cmd[[colorscheme tokyonight-night]]
+          vim.cmd[[colorscheme catppuccin-macchiato]]
       end
   }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
@@ -34,6 +41,7 @@ return require('packer').startup(function(use)
           {'williamboman/mason-lspconfig.nvim'},
           -- Icons
           {"onsails/lspkind.nvim"},
+          {'nvim-tree/nvim-web-devicons'},
       }
   }
   use("nvim-lualine/lualine.nvim")
@@ -54,4 +62,11 @@ return require('packer').startup(function(use)
       end
   }
   use("github/copilot.vim")
+  use {
+      "rust-lang/rust.vim",
+      ft = "rust",
+      config = function()
+          vim.g.rustfmt_autosave = 1
+      end
+  }
 end)
