@@ -10,13 +10,14 @@ return require('packer').startup(function(use)
           --vim.cmd[[colorscheme tokyonight-night]]
       --end
   --}
-  use {
-      "catppuccin/nvim",
-      as = "catppuccin",
-      config = function()
-          vim.cmd[[colorscheme catppuccin-macchiato]]
-      end
-  }
+  --use {
+      --"catppuccin/nvim",
+      --as = "catppuccin",
+      --config = function()
+          --vim.cmd[[colorscheme catppuccin-macchiato]]
+      --end
+  --}
+  use { "ellisonleao/gruvbox.nvim" }
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')

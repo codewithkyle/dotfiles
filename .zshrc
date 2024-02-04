@@ -15,7 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="gruvbox"
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -119,3 +120,9 @@ alias python=/usr/bin/python3
 export PATH=$PATH:/usr/local/go/bin
 alias open="explorer.exe ."
 alias drop="git stash && git stash drop"
+alias own="sudo chmod -R 775 ./ && sudo chown -R $USER:www-data ./"
+alias rustc="~/.cargo/bin/rustc"
+alias cargo="~/.cargo/bin/cargo"
+alias rustup="~/.cargo/bin/rustup"
+alias xclip="clip.exe"
+alias air='~/bin/air'

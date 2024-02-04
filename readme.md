@@ -47,7 +47,7 @@ cd ~/ && git clone https://github.com/codewithkyle/linux-quickstart.git && cd ./
 sudo apt update && sudo apt upgrade -y
 sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update 
 sudo apt install software-properties-common python3 python3-pip ripgrep -y
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k && sudo chsh -s $(which zsh) 
+sudo chsh -s $(which zsh) 
 ```
 
 10. [Install Go](https://go.dev/doc/install)
@@ -65,7 +65,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 12. Run this Command:
 
 ```
-cp ./.zshrc ~/ && mkdir ~/.config/nvim && cp -r ./nvim/* ~/.config/nvim/ && cp ./.p10k.zsh ~/
+cp ./.zshrc ~/ && mkdir ~/.config/nvim && cp -r ./nvim/* ~/.config/nvim/ && cp ./gruvbox.zsh-theme ~/.oh-my-zsh/custom/themes/
 ```
 
 12. Reboot terminal

@@ -20,3 +20,10 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = { "php" },
   },
 }
+
+vim.filetype.add({
+  filename = {
+    [".gitignore"] = "conf",
+    [".django"] = "htmldjango",
+  },
+})

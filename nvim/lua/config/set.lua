@@ -35,3 +35,6 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.opt.clipboard = "unnamedplus"
+
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
