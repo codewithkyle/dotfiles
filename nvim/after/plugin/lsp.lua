@@ -9,7 +9,7 @@ lsp.ensure_installed({
 })
 
 -- Fixes undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -20,51 +20,6 @@ lsp.configure('sumneko_lua', {
 })
 
 local cmp = require('cmp')
---local lspkind = require('lspkind')
---local cmp_config = lsp.defaults.cmp_config({
-    --snippet = {
-        --expand = function(args)
-            --require('luasnip').lsp_expand(args.body)
-        --end
-    --},
-    --formatting = {
-        --format = lspkind.cmp_format({
-            --mode = "symbol_text",
-            --menu = ({
-                --buffer = "[Buffer]",
-                --nvim_lsp = "[LSP]",
-                --luasnip = "[LuaSnip]",
-                --nvim_lua = "[Lua]",
-                --latex_symbols = "[Latex]",
-            --})
-        --}),
-    --},
-    --window = {
-        --completion = {
-            --max_height = 15,
-            --max_width = 60,
-            --border = "none",
-            --col_offset = 0,
-            --side_padding = 1,
-            --winhighlight = 'Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None',
-            --zindex = 1001
-        --},
-        --documentation = {
-            --max_height = 15,
-            --max_width = 60,
-            --border = "none",
-            --col_offset = 0,
-            --side_padding = 1,
-            --winhighlight = 'Normal:Normal,FloatBorder:Normal,CursorLine:Visual,Search:None',
-            --zindex = 1001
-        --}
-    --},
-    --sources = cmp.config.sources({
-        --{ name = 'nvim_lsp' },
-        --{ name = 'luasnip' },
-    --}, { name = 'buffer' }),
---});
---cmp.setup(cmp_config)
 
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp.defaults.cmp_mappings({
