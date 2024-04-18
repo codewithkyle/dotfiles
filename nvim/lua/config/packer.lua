@@ -1,25 +1,17 @@
 return require('packer').startup(function(use)
   use('wbthomason/packer.nvim')
+  use("nvim-lua/plenary.nvim")
   use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      'nvim-telescope/telescope.nvim', tag = '0.1.x',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
-  --use{
-      --'folke/tokyonight.nvim',
-      --config = function()
-          --vim.cmd[[colorscheme tokyonight-night]]
-      --end
-  --}
-  --use {
-      --"catppuccin/nvim",
-      --as = "catppuccin",
-      --config = function()
-          --vim.cmd[[colorscheme catppuccin-macchiato]]
-      --end
-  --}
-  use { "ellisonleao/gruvbox.nvim" }
+  use("ellisonleao/gruvbox.nvim")
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate'})
-  use('ThePrimeagen/harpoon')
+  use {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      requires = { {"nvim-lua/plenary.nvim"} }
+  }
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use {
@@ -36,7 +28,6 @@ return require('packer').startup(function(use)
           -- Snippets
           {'L3MON4D3/LuaSnip'},
           {'saadparwaiz1/cmp_luasnip'},
-          {'rafamadriz/friendly-snippets'},
           -- Mason
           {'williamboman/mason.nvim'},
           {'williamboman/mason-lspconfig.nvim'},
@@ -47,13 +38,6 @@ return require('packer').startup(function(use)
   }
   use("nvim-lualine/lualine.nvim")
   use("folke/trouble.nvim")
-  use {
-      'rmagatti/goto-preview',
-      config = function()
-          require('goto-preview').setup {}
-      end
-  }
-  use("editorconfig/editorconfig-vim")
   use("preservim/nerdcommenter")
   use {
       "akinsho/toggleterm.nvim",
@@ -62,12 +46,15 @@ return require('packer').startup(function(use)
           require("toggleterm").setup()
       end
   }
-  use("github/copilot.vim")
+  use("zbirenbaum/copilot.lua")
+  use("tpope/vim-sleuth")
   use {
-      "rust-lang/rust.vim",
-      ft = "rust",
-      config = function()
-          vim.g.rustfmt_autosave = 1
-      end
+      'nvim-tree/nvim-web-devicons',
+      enabled = vim.g.have_nerd_font
+  }
+  use("j-hui/fidget.nvim")
+  use {
+      "folke/todo-comments.nvim",
+      requires = { {"nvim-lua/plenary.nvim"} }
   }
 end)
