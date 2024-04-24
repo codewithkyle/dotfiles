@@ -39,13 +39,6 @@ return require('packer').startup(function(use)
   use("nvim-lualine/lualine.nvim")
   use("folke/trouble.nvim")
   use("preservim/nerdcommenter")
-  use {
-      "akinsho/toggleterm.nvim",
-      tag = '*',
-      config = function()
-          require("toggleterm").setup()
-      end
-  }
   use("zbirenbaum/copilot.lua")
   use("tpope/vim-sleuth")
   use {
