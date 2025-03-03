@@ -1,3 +1,4 @@
 theme = GruvboxDark
 font-family = "ComicMono Nerd Font"
 font-family-bold = "ComicMono Nerd Font"
+window-decoration = false
