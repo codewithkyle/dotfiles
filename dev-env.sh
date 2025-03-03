@@ -56,5 +56,6 @@ copy_file() {
 copy_dir .config $HOME/.config
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
-copy_file Comic-Mono/ComicMonoNerdFont-Regular.ttf ${HOME}/.local/share/fonts/ComicMonoNerdFont-Regular.ttf
-copy_file Comic-Mono/ComicMonoNerdFont-Bold.ttf ${HOME}/.local/share/fonts/ComicMonoNerdFont-Bold.ttf
+copy_file Comic-Mono/ComicMonoNerdFont-Regular.ttf $HOME/.local/share/fonts/ComicMonoNerdFont-Regular.ttf
+copy_file Comic-Mono/ComicMonoNerdFont-Bold.ttf $HOME/.local/share/fonts/ComicMonoNerdFont-Bold.ttf
+copy_file config $HOME/.config/i3/config
