@@ -120,7 +120,6 @@ alias python=/usr/bin/python3
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.local/bin/wabt/build
 alias open="explorer.exe ."
 alias drop="git stash && git stash drop"
 alias own="sudo chmod -R 775 ./ && sudo chown -R $USER:www-data ./"
