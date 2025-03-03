@@ -24,6 +24,8 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 -- preventing myself from entering hell
 vim.keymap.set("n", "Q", "<nop>")
 
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmlux neww tmux-sessionizer<CR>")
+
 -- Toggle diagnostics window
 vim.keymap.set("n", "<leader>t", "<cmd>TroubleToggle<cr>")
 
