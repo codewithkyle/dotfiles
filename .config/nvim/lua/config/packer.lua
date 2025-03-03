@@ -25,9 +25,6 @@ return require('packer').startup(function(use)
           {'hrsh7th/cmp-cmdline'},
           {'hrsh7th/cmp-nvim-lua'},
           {'hrsh7th/nvim-cmp'},
-          -- Snippets
-          --{'L3MON4D3/LuaSnip'},
-          --{'saadparwaiz1/cmp_luasnip'},
           -- Mason
           {'williamboman/mason.nvim'},
           {'williamboman/mason-lspconfig.nvim'},
