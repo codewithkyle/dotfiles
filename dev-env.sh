@@ -50,8 +50,8 @@ copy_file() {
     to=$2
     name=$(basename $from)
 
-    execute rm $to/$name
-    execute cp $from $to/$name
+    execute rm -rf $to/$name
+    execute cp -r $from $to/$name
 }
 
 copy_dir .config $HOME/.config
