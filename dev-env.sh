@@ -50,7 +50,9 @@ copy_file() {
     to=$2
     name=$(basename $from)
 
-    execute rm -rf $to/$name
+    log "Copying: " $from " -> " $to/$name
+
+    execute rm -f $to/$name
     mkdir -p $to
     execute cp $from $to/$name
 }
@@ -59,5 +61,14 @@ copy_dir .config $HOME/.config
 copy_dir .local $HOME/.local
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes
+
+log "Moving fonts..."
+
 copy_file Comic-Mono/ComicMonoNerdFont-Regular.ttf $HOME/.local/share/fonts
 copy_file Comic-Mono/ComicMonoNerdFont-Bold.ttf $HOME/.local/share/fonts
+
+log "Comic Mono...Done!"
+
+copy_file Berkeley-Mono/Berkeley-Mono-Variable.otf $HOME/.local/share/fonts
+
+log "Berkeley Mono...Done!"

@@ -1,4 +1,5 @@
 theme = GruvboxDark
-font-family = "ComicMono Nerd Font"
-font-family-bold = "ComicMono Nerd Font"
+font-family = "Berkeley Mono Variable"
+font-variation = wght=500
+font-variation = wdth=100
 window-decoration = false

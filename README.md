@@ -4,6 +4,8 @@ Start by running `./run.sh` to install packages and software.
 
 Then run `./dev-env.sh` to configure the environment.
 
+> **Note**: the dev environment setup currently uses the "Berkeley Mono Variable" font which is not provided by this repo. Download the font and place in the `Berkeley-Mono/` directory as `Berkeley-Mono-Variable.otf` before running the `./dev-env.sh` script.
+
 # Windows Terminal Settings
 
 1. Open Settings -> Color Schemes
