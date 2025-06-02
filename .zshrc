@@ -133,3 +133,4 @@ alias ga="git add ."
 alias gc="git commit -m "
 alias dnuke='docker rm -f $(docker ps -aq) && docker system prune -af --volumes'
 alias dbuild="docker compose up --build"
+alias lg="lazygit"
