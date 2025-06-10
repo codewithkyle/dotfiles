@@ -46,7 +46,7 @@ lsp.on_attach(function(client, bufnr)
         return
     end
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition({ loclist = true, reuse_win = true }) end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -73,4 +73,20 @@ lsp.setup()
 
 vim.diagnostic.config({
     virtual_text = true,
+})
+
+-- auto close definition list after picking an entry
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'qf',      -- qf is the filetype for both quickfix & location lists
+  callback = function()
+    -- Figure out whether this window is a quickfix or location list
+    local close_cmd =
+      vim.fn.getwininfo(vim.api.nvim_get_current_win())[1].loclist == 1
+        and 'lclose'    -- location list
+        or  'cclose'    -- quickfix
+
+    -- Remap <CR> inside the list window: jump, then close the window
+    vim.keymap.set('n', '<CR>', '<CR>:' .. close_cmd .. '<CR>',
+                   {buffer = true, silent = true})
+  end,
 })
