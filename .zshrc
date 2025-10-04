@@ -14,25 +14,27 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source ~/.nvm/nvm.sh
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias vi="nvim"
 alias vim="nvim"
 alias python=/usr/bin/python3
 
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.local/scripts
-alias open="explorer.exe ."
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/scripts
+alias vi="nvim"
+alias vim="nvim"
+alias python=/usr/bin/python3
 alias drop="git stash && git stash drop"
 alias own="sudo chmod -R 775 ./ && sudo chown -R $USER:www-data ./"
-alias rustc="~/.cargo/bin/rustc"
-alias cargo="~/.cargo/bin/cargo"
-alias rustup="~/.cargo/bin/rustup"
-#alias xclip="clip.exe"
-alias c="xclip -selection clipboard"
-alias v="xclip -o"
+alias rustc="$HOME/.cargo/bin/rustc"
+alias cargo="$HOME/.cargo/bin/cargo"
+alias rustup="$HOME/.cargo/bin/rustup"
 alias air='~/go/bin/air'
 alias ga="git add ."
 alias gc="git commit -m "

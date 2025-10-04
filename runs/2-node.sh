@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt install nodejs -y
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-nvm install --lts
+sudo pacman -S nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 npm i -g neovim

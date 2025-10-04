@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-sudo apt install fzf -y
+sudo pacman -S fzf

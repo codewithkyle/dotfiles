@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt upgrade -y
+sudo pacman -Sy
+sudo pacman -Su
+sudo pacman -S wget curl
