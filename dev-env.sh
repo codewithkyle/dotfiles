@@ -61,6 +61,7 @@ copy_dir .config $HOME/.config
 copy_dir .local $HOME/.local
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes
+copy_file ./backgrounds/1-gruvbox.png $HOME/.local/share/omarchy/themes/gruvbox/backgrounds/0-gruvbox.png
 
 log "Moving fonts..."
 
