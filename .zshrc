@@ -42,3 +42,4 @@ alias qpr="$HOME/scripts/quick-pr.sh"
 alias dnuke='docker rm -f $(docker ps -aq) && docker system prune -af --volumes'
 alias dbuild="docker compose up --build"
 alias lg="lazygit"
+alias serve="python3 -m http.server 8080 --bind 127.0.0.1"
