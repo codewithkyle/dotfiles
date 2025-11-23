@@ -12,6 +12,8 @@ require('mason-lspconfig').setup({
 -- nvim-cmp setup
 local cmp = require('cmp')
 local cmp_action = lsp_zero.cmp_action()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+lsp_zero.setup({ capabilities = capabilities })
 
 cmp.setup({
     mapping = cmp.mapping.preset.insert({
