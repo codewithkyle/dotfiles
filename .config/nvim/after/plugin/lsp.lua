@@ -25,9 +25,6 @@ cmp.setup({
     ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
     ["<C-Space>"] = cmp.mapping.complete(),
-    -- disable Tab / Shift-Tab
-    ["<Tab>"] = cmp.mapping(function() end),
-    ["<S-Tab>"] = cmp.mapping(function() end),
   },
 })
 
