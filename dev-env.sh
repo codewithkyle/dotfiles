@@ -35,12 +35,14 @@ copy_dir() {
     from=$1
     to=$2
 
-    pushd $from > /dev/null
+    mkdir -p "$to"
+
+    pushd "$from" > /dev/null
     dirs=$(find . -mindepth 1 -maxdepth 1 -type d)
     for dir in $dirs; do
         dir_no_prefix=${dir#./}
-        execute rm -rf $to/$dir_no_prefix
-        execute cp -r $dir_no_prefix $to/$dir_no_prefix
+        mkdir -p "$to/$dir_no_prefix"
+        execute rsync -a --delete "$dir_no_prefix/" "$to/$dir_no_prefix/"
     done
     popd > /dev/null
 }
