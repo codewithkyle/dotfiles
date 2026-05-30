@@ -79,6 +79,7 @@ return require("packer").startup(function(use)
     "folke/todo-comments.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   })
+  use("2hdddg/fex.nvim")
 
   -- Misc
   use("ThePrimeagen/99")
