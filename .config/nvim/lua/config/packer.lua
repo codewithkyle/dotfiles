@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
   use("tpope/vim-fugitive")
   use("tpope/vim-sleuth")
   use("preservim/nerdcommenter")
+  use("jake-stewart/multicursor.nvim")
 
   -- Statusline
   use({
