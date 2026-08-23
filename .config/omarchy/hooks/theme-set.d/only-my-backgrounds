@@ -1,0 +1,48 @@
+#!/bin/bash
+# Make my own backgrounds the ONLY ones for a theme.
+#
+# Omarchy builds ~/.local/state/omarchy/current/theme by copying the stock theme
+# and then overlaying ~/.config/omarchy/themes/<slug> on top. That overlay is a
+# plain `cp -r`, so a backgrounds/ directory MERGES with the stock one -- there
+# is no declarative way to remove the shipped images. The switcher and
+# `omarchy theme bg next` then cycle the union of:
+#
+#   ~/.config/omarchy/backgrounds/<slug>/   <- mine
+#   <current theme>/backgrounds/            <- stock
+#
+# so this prunes the second set after each theme apply.
+#
+# Runs for every theme but only acts on themes I have supplied backgrounds for;
+# everything else keeps its stock images untouched.
+
+theme="$1"
+[[ -n $theme ]] || exit 0
+
+user_backgrounds="$HOME/.config/omarchy/backgrounds/$theme"
+theme_backgrounds="$HOME/.local/state/omarchy/current/theme/backgrounds"
+current_link="$HOME/.local/state/omarchy/current/background"
+
+# The same extensions Omarchy itself treats as a background.
+image_filter=(-regextype posix-extended -iregex '.*\.(jpg|jpeg|png|gif|bmp|webp)')
+
+mine=()
+[[ -d $user_backgrounds ]] && mapfile -d '' -t mine < <(
+  find -L "$user_backgrounds" -maxdepth 1 -type f "${image_filter[@]}" -print0 2>/dev/null | sort -z
+)
+
+# Nothing of my own for this theme -- leave its stock backgrounds alone.
+(( ${#mine[@]} > 0 )) || exit 0
+
+[[ -d $theme_backgrounds ]] &&
+  find "$theme_backgrounds" -maxdepth 1 -type f "${image_filter[@]}" -delete 2>/dev/null
+
+# Pruning may have deleted whatever the current background pointed at. Only
+# re-point when the link is actually dangling, so a background I picked myself
+# is never overridden.
+if [[ ! -f $(readlink -f "$current_link" 2>/dev/null) ]]; then
+  if command -v omarchy-theme-bg-set >/dev/null 2>&1; then
+    omarchy-theme-bg-set "${mine[0]}" >/dev/null 2>&1
+  else
+    ln -nsf "${mine[0]}" "$current_link"
+  fi
+fi
