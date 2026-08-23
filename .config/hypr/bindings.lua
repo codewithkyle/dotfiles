@@ -17,11 +17,25 @@ hl.unbind("SUPER + F")
 o.bind("SUPER + F", "File manager", { omarchy = "nautilus" })
 
 -- Browser. SUPER + B is free in Quattro; SUPER + SHIFT + B was "Browser".
-o.bind("SUPER + B", "Browser", { omarchy = "browser --ozone-platform=x11 --force-device-scale-factor=1 --high-dpi-support=0" })
+--
+-- The old bindings.conf appended
+--   --ozone-platform=x11 --force-device-scale-factor=1 --high-dpi-support=0
+-- to work around the browser rendering oversized under 2x scaling. Both causes
+-- are gone: eDP-1 is pinned to scale 1 and GDK_SCALE is 1 (see monitors.lua).
+--
+-- Keeping them was actively harmful. /usr/bin/brave execs
+--   /opt/brave-bin/brave "${FLAG_LIST[@]}" "${@}"
+-- so flags passed here land AFTER ~/.config/brave-flags.conf and win, meaning
+-- --ozone-platform=x11 was overriding that file's --ozone-platform=wayland and
+-- forcing Brave through XWayland. Let brave-flags.conf govern instead.
+--
+-- Which browser launches is resolved from the XDG handlers in
+-- ~/.config/mimeapps.list, which this repo tracks so it stays Brave.
+o.bind("SUPER + B", "Browser", { omarchy = "browser" })
 
 -- Was: Browser (Quattro keeps private on SUPER + SHIFT + ALT + B)
 hl.unbind("SUPER + SHIFT + B")
-o.bind("SUPER + SHIFT + B", "Browser (private)", { omarchy = "browser --private --ozone-platform=x11 --force-device-scale-factor=1 --high-dpi-support=0" })
+o.bind("SUPER + SHIFT + B", "Browser (private)", { omarchy = "browser --private" })
 
 -- Free in Quattro (its Spotify binding lives on SUPER + SHIFT + M)
 o.bind("SUPER + M", "Music", { webapp = "https://music.youtube.com" })

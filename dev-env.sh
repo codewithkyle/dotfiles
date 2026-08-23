@@ -79,6 +79,11 @@ copy_file() {
 
 copy_dir .config $HOME/.config
 copy_dir .local $HOME/.local
+# copy_dir only walks top-level directories, so loose files under .config/ need
+# an explicit copy. Tracking mimeapps.list is what keeps Brave the default
+# browser: the Quattro upgrade reset every browser handler in it to Chromium,
+# and omarchy-launch-browser resolves the browser through these XDG handlers.
+copy_file .config/mimeapps.list $HOME/.config
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes
 # User backgrounds for a theme live here in Omarchy 4 (Quattro). The old target,
