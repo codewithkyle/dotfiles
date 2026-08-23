@@ -58,5 +58,16 @@ o.bind("SUPER + D", "Docker", { tui = "ducker" })
 hl.unbind("SUPER + O")
 o.bind("SUPER + O", "Obsidian", { launch = "obsidian -disable-gpu --enable-wayland-ime", focus = "^obsidian$" })
 
--- Free in Quattro (its ChatGPT binding lives on SUPER + SHIFT + A)
-o.bind("SUPER + A", "ChatGPT", { webapp = "https://chatgpt.com" })
+-- Free in Quattro (its ChatGPT binding lives on SUPER + SHIFT + A).
+--
+-- Launch-or-focus rather than a plain launch, so pressing this repeatedly
+-- returns to the existing window instead of stacking new ones.
+--
+-- Written out longhand instead of { webapp = ..., focus = true } because that
+-- form reuses the DESCRIPTION as the window pattern, and "Claude" matches any
+-- Claude Code terminal too -- omarchy-launch-or-focus tests both class and
+-- title, then takes the first hit. A session titled "Refactor the Claude API
+-- client" would steal this binding. Matching the web app's window class
+-- (brave-claude.ai__-Default) instead is unambiguous, and the browser-agnostic
+-- part of it keeps working if the default browser ever changes.
+o.bind("SUPER + A", "Claude", "omarchy-launch-or-focus-webapp 'claude\\.ai__' 'https://claude.ai'")
