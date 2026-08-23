@@ -31,6 +31,20 @@ log "---------- dev env ----------"
 
 cd $script_dir
 
+# Directories that Omarchy also installs into. These are merged instead of
+# mirrored: rsync --delete here would wipe package-installed content this repo
+# does not track (omarchy/extensions, omarchy/hooks, omarchy/themed, ...).
+merge_dirs=("omarchy")
+
+is_merge_dir() {
+    local candidate=$1
+    local merge_dir
+    for merge_dir in "${merge_dirs[@]}"; do
+        [[ $candidate == "$merge_dir" ]] && return 0
+    done
+    return 1
+}
+
 copy_dir() {
     from=$1
     to=$2
@@ -42,7 +56,11 @@ copy_dir() {
     for dir in $dirs; do
         dir_no_prefix=${dir#./}
         mkdir -p "$to/$dir_no_prefix"
-        execute rsync -a --delete "$dir_no_prefix/" "$to/$dir_no_prefix/"
+        if is_merge_dir "$dir_no_prefix"; then
+            execute rsync -a "$dir_no_prefix/" "$to/$dir_no_prefix/"
+        else
+            execute rsync -a --delete "$dir_no_prefix/" "$to/$dir_no_prefix/"
+        fi
     done
     popd > /dev/null
 }
@@ -63,7 +81,11 @@ copy_dir .config $HOME/.config
 copy_dir .local $HOME/.local
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes
-copy_file ./backgrounds/1-gruvbox.png $HOME/.local/share/omarchy/themes/gruvbox/backgrounds/0-gruvbox.png
+# User backgrounds for a theme live here in Omarchy 4 (Quattro). The old target,
+# ~/.local/share/omarchy/themes/, is now a symlink into root-owned
+# /usr/share/omarchy and must never be written to.
+# NOTE: copy_file takes a destination DIRECTORY and keeps the source filename.
+copy_file ./backgrounds/1-gruvbox.png $HOME/.config/omarchy/backgrounds/gruvbox
 
 log "Moving fonts..."
 
