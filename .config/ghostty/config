@@ -3,3 +3,9 @@ font-family = "Berkeley Mono Variable"
 font-variation = wght=500
 font-variation = wdth=100
 window-decoration = false
+
+# Send Shift+Enter as CSI-u so TUIs can distinguish it from Enter.
+keybind = shift+enter=csi:13;2u
+
+# Legacy encoding sends Alt+Shift+Enter the same as Alt+Enter; send CSI-u so tmux can match M-S-Enter.
+keybind = alt+shift+enter=csi:13;4u
