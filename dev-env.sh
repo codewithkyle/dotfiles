@@ -84,6 +84,10 @@ copy_dir .local $HOME/.local
 # browser: the Quattro upgrade reset every browser handler in it to Chromium,
 # and omarchy-launch-browser resolves the browser through these XDG handlers.
 copy_file .config/mimeapps.list $HOME/.config
+# Selects Ghostty for xdg-terminal-exec, which is what omarchy-launch-terminal
+# and omarchy-launch-tui resolve through. The Quattro upgrade deleted this file,
+# silently falling back to foot.
+copy_file .config/xdg-terminals.list $HOME/.config
 copy_file .zshrc $HOME
 copy_file gruvbox.zsh-theme $HOME/.oh-my-zsh/custom/themes
 # User backgrounds for a theme live here in Omarchy 4 (Quattro). The old target,
