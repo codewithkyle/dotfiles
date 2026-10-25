@@ -67,9 +67,6 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
-      -- Snippets (keep only if you actually use snippets)
-      "L3MON4D3/LuaSnip",
-      "saadparwaiz1/cmp_luasnip",
     },
   })
 

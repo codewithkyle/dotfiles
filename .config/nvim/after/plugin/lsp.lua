@@ -18,7 +18,6 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "buffer" },
-    { name = "cmdline" },
   },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
