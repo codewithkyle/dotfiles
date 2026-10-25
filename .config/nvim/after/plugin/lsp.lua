@@ -96,4 +96,4 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.lsp.set_log_level("off")
+vim.lsp.log.set_level("off")
