@@ -69,6 +69,11 @@ return require("packer").startup(function(use)
       "hrsh7th/cmp-nvim-lua",
     },
   })
+  use { "zbirenbaum/copilot.lua",
+    requires = {
+      "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+    },
+  }
 
   -- UI / QoL
   use("j-hui/fidget.nvim")
